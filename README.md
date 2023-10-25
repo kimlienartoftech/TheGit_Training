@@ -123,7 +123,8 @@ git commit -m "Message"
 
   # Ví dụ
   - Ở đây chúng ta sẽ xem một quy trình làm việc với Git giả định
-  ```
+```
+# Clone repo từ GitHub về local
 $ git clone git@github.com:kimlienartoftech/TheGit_Training.git                                        
 Cloning into 'TheGit_Training'...
 remote: Enumerating objects: 26, done.
@@ -132,10 +133,51 @@ remote: Compressing objects: 100% (18/18), done.
 remote: Total 26 (delta 3), reused 22 (delta 2), pack-reused 0
 Receiving objects: 100% (26/26), 6.37 KiB | 6.37 MiB/s, done.
 Resolving deltas: 100% (3/3), done.
+
+# Di chuyển tới folder repo
 $ cd TheGit_Training
+
+# Kiểm tra trạng thái
 $ git status                                                                         
 On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
-  ```
+
+# Thêm những thay đổi ở file
+$ git add .
+
+#Lưu vào lịch sử cùng thông báo "More contents
+$ git commit -m "More contents"
+[main 5b023ed] More contents
+ 1 file changed, 64 insertions(+), 9 deletions(-)
+
+# Đồng bộ GitHub với local
+$ git push 
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.87 KiB | 1.87 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:kimlienartoftech/TheGit_Training.git
+   bd60c92..5b023ed  main -> main
+```
+
+- Tiếp theo đây là một phần của một máy khác khi tương tác với repo đó tuy nhiên local này vẫn chưa được merge với những cập nhật ở phía trên
+```
+# Cập nhật thay đổi trên GitHub
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), 1.85 KiB | 1.85 MiB/s, done.
+From github.com:kimlienartoftech/TheGit_Training
+   bd60c92..5b023ed  main       -> origin/main
+Updating bd60c92..5b023ed
+Fast-forward
+ README.md | 73 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 64 insertions(+), 9 deletions(-)
+```
