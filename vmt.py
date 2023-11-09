@@ -1,0 +1,1 @@
+print('canh tay phai cua mth')
